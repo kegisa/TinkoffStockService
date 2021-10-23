@@ -1,2 +1,5 @@
 server:
   port: 8080
+
+api :
+  isSandBoxMode : true

@@ -2,7 +2,9 @@ package com.example.stockAPI.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Value;
 
+@Value
 public class Stock {
     String ticker;
     String name;
