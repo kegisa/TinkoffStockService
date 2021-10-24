@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class StockController {
     private final StockService stockService;
 
-
     @GetMapping("/stocks/{ticker}")
     public Stock getStock(@PathVariable("ticker") String ticker) {
         return stockService.getStockByTicker(ticker);
