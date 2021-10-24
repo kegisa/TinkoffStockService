@@ -1,4 +1,4 @@
-package com.example.stockAPI.config;
+package com.example.stockapi.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
