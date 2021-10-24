@@ -1,14 +1,13 @@
-package com.example.stockAPI.controller;
+package com.example.stockapi.controller;
 
-import com.example.stockAPI.model.Stock;
-import com.example.stockAPI.service.StockService;
+import com.example.stockapi.model.Stock;
+import com.example.stockapi.service.StockService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.reactive.server.StatusAssertions;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.StandardCharsets;

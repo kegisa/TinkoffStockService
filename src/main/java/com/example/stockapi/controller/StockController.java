@@ -1,7 +1,7 @@
-package com.example.stockAPI.controller;
+package com.example.stockapi.controller;
 
-import com.example.stockAPI.model.Stock;
-import com.example.stockAPI.service.StockService;
+import com.example.stockapi.model.Stock;
+import com.example.stockapi.service.StockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

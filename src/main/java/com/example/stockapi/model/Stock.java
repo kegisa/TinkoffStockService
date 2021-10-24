@@ -1,4 +1,4 @@
-package com.example.stockAPI.model;
+package com.example.stockapi.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package com.example.stockAPI.config;
+package com.example.stockapi.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -15,7 +15,7 @@ public class ApplicationConfig {
     private final ApiConfig apiConfig;
 
     @Bean
-    public OpenApi api(){
+    public OpenApi api() {
         String ssoToken = System.getenv("ssoToken");
         return new OkHttpOpenApi(ssoToken, apiConfig.getIsSandBoxMode());
     }

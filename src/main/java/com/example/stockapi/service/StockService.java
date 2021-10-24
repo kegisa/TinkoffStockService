@@ -1,6 +1,6 @@
-package com.example.stockAPI.service;
+package com.example.stockapi.service;
 
-import com.example.stockAPI.model.Stock;
+import com.example.stockapi.model.Stock;
 
 public interface StockService {
     Stock getStockByTicker(String ticker);

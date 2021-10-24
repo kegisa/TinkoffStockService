@@ -1,8 +1,6 @@
-package com.example.stockAPI;
+package com.example.stockapi;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
 
 
 public class APITest {

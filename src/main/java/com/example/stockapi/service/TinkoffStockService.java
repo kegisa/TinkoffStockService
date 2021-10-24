@@ -1,20 +1,20 @@
-package com.example.stockAPI.service;
+package com.example.stockapi.service;
 
-import com.example.stockAPI.model.Stock;
+import com.example.stockapi.model.Stock;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.invest.openapi.OpenApi;
 
 @Service
 @RequiredArgsConstructor
-public class TinkoffStockService implements StockService{
+public class TinkoffStockService implements StockService {
     private final OpenApi api;
 
-    public Stock getStockByTicker(String ticker){
+    public Stock getStockByTicker(String ticker) {
         var context = api.getMarketContext();
         var stockList = context.searchMarketInstrumentsByTicker(ticker).join();
         var list = stockList.getInstruments();
-        if(list.isEmpty()) {
+        if (list.isEmpty()) {
             throw new RuntimeException("not found");
         }
 

@@ -1,6 +1,6 @@
-package com.example.stockAPI.service;
+package com.example.stockapi.service;
 
-import com.example.stockAPI.model.Stock;
+import com.example.stockapi.model.Stock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
