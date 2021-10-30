@@ -1,5 +1,6 @@
 package com.example.stockapi.controller;
 
+import com.example.stockapi.model.Currency;
 import com.example.stockapi.model.Stock;
 import com.example.stockapi.service.StockService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +30,9 @@ class StockControllerTest {
     public static final String FXTEST = "FXTEST";
     public static final String NAME = "Finex test";
     public static final String TYPE = "Etf";
-    Stock actualStock = new Stock(FXTEST, NAME, TYPE);
+    public static final String FIGI = "figi";
+    public static final Currency CURRENCY = Currency.RUB;
+    Stock actualStock = new Stock(FXTEST, FIGI, NAME, TYPE, CURRENCY);
 
     @BeforeEach
     void beforeEach() {
