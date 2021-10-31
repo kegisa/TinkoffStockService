@@ -1,8 +1,6 @@
 package com.example.stockapi.controller;
 
-import com.example.stockapi.dto.FigiesDto;
-import com.example.stockapi.dto.StockPrice;
-import com.example.stockapi.dto.StocksPricesDto;
+import com.example.stockapi.dto.*;
 import com.example.stockapi.model.Stock;
 import com.example.stockapi.service.StockService;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +24,10 @@ public class StockController {
     @PostMapping("/prices")
     public StocksPricesDto getPricesStocksByFigies(@RequestBody FigiesDto figiesDto) {
         return stockService.getPricesStocksByFigies(figiesDto);
+    }
+
+    @PostMapping("/stocks/getStocksByTickers")
+    public StocksDto getStocksByTickers(@RequestBody TickersDto tickers) {
+        return stockService.getStocksByTickers(tickers);
     }
 }
