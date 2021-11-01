@@ -36,7 +36,7 @@ public class TinkoffStockService implements StockService {
         var cf = getMarketInstrumentTicker(ticker);
         var list = cf.join().getInstruments();
         if (list.isEmpty()) {
-            throw new StockNotFoundException(String.format("Stock % not found.", ticker));
+            throw new StockNotFoundException(String.format("Stock %S not found.", ticker));
         }
         var item = list.get(0);
         return new Stock(
@@ -54,7 +54,7 @@ public class TinkoffStockService implements StockService {
         List<Stock> stocks =  marketInstruments.stream()
                 .map(CompletableFuture::join)
                 .map(mi -> {
-                    if(mi.getInstruments().isEmpty()) {
+                    if (mi.getInstruments().isEmpty()) {
                         throw new StockNotFoundException(
                                 String.format(
                                         "Stock with ticker %s not found",
@@ -83,19 +83,23 @@ public class TinkoffStockService implements StockService {
 
     @Async
     public CompletableFuture<Optional<Orderbook>> getOrderBookByFigi(String figi) {
-        var orderBook = api.getMarketContext().getMarketOrderbook(figi,0);
-        log.info("Getting {} from Tinkoff",figi);
+        var orderBook = api.getMarketContext().getMarketOrderbook(figi, 0);
+        log.info("Getting price {} from Tinkoff", figi);
         return orderBook;
     }
 
     public StocksPricesDto getPricesStocksByFigies(FigiesDto figiesDto) {
+        long start = System.currentTimeMillis();
         List<CompletableFuture<Optional<Orderbook>>> orderBooks = new ArrayList<>();
         figiesDto.getFigies().forEach(figi -> orderBooks.add(getOrderBookByFigi(figi)));
         List<StockPrice> prices =  orderBooks.stream()
                 .map(CompletableFuture::join)
                 .map(oo -> oo.orElseThrow(() -> new StockNotFoundException("Stock not found.")))
-                .map(orderBook -> new StockPrice(orderBook.getFigi(), orderBook.getLastPrice().doubleValue())).collect(Collectors.toList());
+                .map(orderBook -> new StockPrice(
+                        orderBook.getFigi(),
+                        orderBook.getLastPrice().doubleValue())).collect(Collectors.toList());
 
+        log.info("Time getting prices - {}", System.currentTimeMillis() - start);
         return new StocksPricesDto(prices);
     }
 

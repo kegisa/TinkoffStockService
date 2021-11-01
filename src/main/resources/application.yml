@@ -3,6 +3,9 @@ server:
 
 api :
   isSandBoxMode : true
+
 logging:
+  file:
+    name: logs/TinkoffService.log
   level:
     root: INFO
