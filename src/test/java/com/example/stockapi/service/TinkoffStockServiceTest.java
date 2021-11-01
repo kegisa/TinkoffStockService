@@ -8,10 +8,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.tinkoff.invest.openapi.MarketContext;
 import ru.tinkoff.invest.openapi.OpenApi;
+import ru.tinkoff.invest.openapi.model.rest.Currency;
 import ru.tinkoff.invest.openapi.model.rest.InstrumentType;
 import ru.tinkoff.invest.openapi.model.rest.MarketInstrument;
 import ru.tinkoff.invest.openapi.model.rest.MarketInstrumentList;
-
 
 import java.util.concurrent.CompletableFuture;
 
@@ -31,6 +31,7 @@ class TinkoffStockServiceTest {
     public static final String STOCK_NAME = "Test name";
     public static final String STOCK_TICKER = "Test ticker";
     public static final String STOCK_TYPE = "Etf";
+    public static final com.example.stockapi.model.Currency STOCK_CURR = com.example.stockapi.model.Currency.RUB;
 
 
     @BeforeEach
@@ -40,6 +41,7 @@ class TinkoffStockServiceTest {
         marketInstrument.setName(STOCK_NAME);
         marketInstrument.setTicker(STOCK_TICKER);
         marketInstrument.setType(InstrumentType.ETF);
+        marketInstrument.setCurrency(Currency.RUB);
         list.addInstrumentsItem(marketInstrument);
 
         when(api.getMarketContext())
@@ -57,6 +59,7 @@ class TinkoffStockServiceTest {
         assertEquals(STOCK_NAME, actualStock.getName());
         assertEquals(STOCK_TICKER, actualStock.getTicker());
         assertEquals(STOCK_TYPE, actualStock.getType());
+        assertEquals(STOCK_CURR, actualStock.getCurrency());
 
         verify(api, times(1)).getMarketContext();
     }
