@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>stockAPI</artifactId>
+	<artifactId>TinkoffStockService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>stockAPI</name>
+	<name>TinkoffStockService</name>
 	<description>Service for getting stocks</description>
 	<properties>
 		<java.version>11</java.version>
@@ -66,8 +66,6 @@
 			<version>5.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
