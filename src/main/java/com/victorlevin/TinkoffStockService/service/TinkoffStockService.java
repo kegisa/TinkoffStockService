@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -95,4 +94,5 @@ public class TinkoffStockService implements StockService {
         return new StocksPricesDto(prices);
     }
 
+//some changes
 }
